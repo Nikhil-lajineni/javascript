@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Doc</title>
+   <script>
+    function f1(){
+        var content=document.getElementById("demo");
+content.innerHTML="Hello JavaScript";
+        content.style.color="red";
+      var domElement=  document.createElement("p");
+      domElement.innerHTML="Hello Nikhil !";
+      var child=document.querySelector("body");
+      child.appendChild(domElement);
+      domElement.style.color="blue";
+    //   for(var key in domElement){
+    //       console.log(key);
+    //   }
+      
+    }
+   </script>
+</head>
+<body>
+    <h1>Document Object Model</h1>
+    <p id="demo">Hello World</p>
+    <button onclick="f1()">Change content</button>
+    
+</body>
+</html>
