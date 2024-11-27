@@ -1,4 +1,5 @@
 import "./Nav.css";
+import { Link } from 'react-router-dom';
 function Nav() {
     return (
         <div className="navContainer">
@@ -6,11 +7,11 @@ function Nav() {
                 <h1>Logo</h1>
             </div>
             <div className="centerNav">
-            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png">Home</a>
-        <a href="">Electronics</a>
-        <a href="">Jewelery</a>
-        <a href="">Mens</a>
-        <a href="">Womens</a>
+            <Link to="/">Home</Link>
+        <Link to="/electronics">Electronics</Link>
+        <Link to="/jewelery">Jewelery</Link>
+        <Link to="/mens">Mens</Link>
+        <Link to="/womens">Womens</Link>
             </div>
       <div className="rightNav">
         <button>Logout</button>

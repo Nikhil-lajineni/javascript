@@ -1,25 +1,17 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-function Products() {
+import "./Products.css";
+import getProductsData from "../services/ProductService";
+function Products({ title, url }) {
   const [products, setProducts] = useState([]);
-  const getProductsData = () => {
-    //axios.get() will return promise and to handle that promise
-    //we have used then and catch, for more info go through promise video
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((res) => {
-        // console.log(res.data);
-        setProducts(res.data);
-      })
-      .catch(() => {
-        alert("Something went wrong");
-      });
-  };
+  useEffect(()=>{
+    getProductsData(setProducts);
+  },[]);
 
   return (
     <div className="productsContainer">
-      <h2>Products Component</h2>
+      <h2> {title} Component</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo facilis
         ratione excepturi, facere consequuntur fugiat sapiente laboriosam dicta
@@ -34,16 +26,13 @@ function Products() {
         necessitatibus corporis reiciendis ad. Dicta, quam! Porro iusto nisi
         ratione ullam.
       </p>
-      <button onClick={getProductsData}>Get Products</button>
-
       <div className="allProductsContainer">
         {products.map((product) => {
           return (
-            <div className="card">
-              <img src={product.image} width="100%" height={"200"} />
+            <div className="card" key={product.id}>
+              <img src={product.image} alt={product.title} />
               <h3>{product.title}</h3>
-              <p>${product.price}</p>
-              <button>Product Details</button>
+              <p>{product.price}</p>
             </div>
           );
         })}
