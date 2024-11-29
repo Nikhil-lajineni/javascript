@@ -14,8 +14,15 @@ function Nav() {
         <Link to="/womens">Womens</Link>
             </div>
       <div className="rightNav">
+      <Link to="/profile">
+          <i class="bi bi-person-circle" style={{ fontSize: "23px" }}></i>Profile
+        </Link>
+        <Link to="/cart" style={{ fontSize: "23px" }}>
+          <i class="bi bi-bag-check-fill"></i> Cart
+        </Link>
         <button>Logout</button>
          </div>
+         
         </div>
         
     )
